@@ -60,7 +60,7 @@
 						if($_POST[$counter] == null){
 							$counter++;
 						}else{
-							mysql_query("INSERT INTO Member_has_Interests (memberId, interestId) VALUES ($memberId, $_POST[$counter])") or die ('Error: '.mysql_error());
+							mysqli_query("INSERT INTO Member_has_Interests (memberId, interestId) VALUES ($memberId, $_POST[$counter])") or die ('Error: '.mysqli_error());
 							$counter++;}
 					}
 					echo "<p class=\"center\">Your interests have been updated.</p>";

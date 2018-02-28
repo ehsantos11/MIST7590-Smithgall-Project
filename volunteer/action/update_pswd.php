@@ -17,8 +17,8 @@
 	$password = sha1($password);
 	$memberId= (int) $_SESSION['memberId'];
 	//Validate current password
-	$result = mysql_query("SELECT password FROM Security WHERE memberId = $memberId") or die (mysql_error());
-	$result = mysql_fetch_array( $result );
+	$result = mysqli_query("SELECT password FROM Security WHERE memberId = $memberId") or die (mysqli_error());
+	$result = mysqli_fetch_array( $result );
 	
 	//password not valid
 	if($currentPassword != $result[password]) {
@@ -27,7 +27,7 @@
 	
 	//update database with new password
 	else {
-		mysql_query("UPDATE Security SET password = '$password' WHERE memberId = $memberId")	or die('Error: '.mysql_error());
+		mysqli_query("UPDATE Security SET password = '$password' WHERE memberId = $memberId")	or die('Error: '.mysqli_error());
 		session_regenerate_id(true);
 		header("Location: ../change_pswd.php?goodpswd=true");			
 	}

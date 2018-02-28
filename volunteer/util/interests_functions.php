@@ -6,10 +6,10 @@
 		$memberId = (int) $_SESSION['memberId'];
 		$member_interest = get_member_interests();
 
-		$interest_list = mysql_query("SELECT interestName, interestId FROM Interests") or die ('ERROR: '.mysql_error());
+		$interest_list = mysqli_query("SELECT interestName, interestId FROM Interests") or die ('ERROR: '.mysqli_error());
 	echo "<table id = 'interests'>";
 		$counter = 1;
-		while($interest_row = mysql_fetch_array($interest_list)){
+		while($interest_row = mysqli_fetch_array($interest_list)){
 			$checked ="";
 			if($member_interest != -1){
 				if(in_array($counter, $member_interest)){
@@ -36,9 +36,9 @@
 	function get_member_interests(){
 		$memberId = (int) $_SESSION['memberId'];
 		
-		$result = mysql_query("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId") or die ('Error: '.mysql_error ());
+		$result = mysqli_query("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId") or die ('Error: '.mysqli_error ());
 
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			$member_interest[]=$row[interestId];
 		}
 		if($member_interest == null){

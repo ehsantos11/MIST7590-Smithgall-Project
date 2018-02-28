@@ -8,9 +8,9 @@
                 //added by drdan
                 writeDrDanLog($memberId,$sqlDate,$newProject,$newActivity,$newLocation,$newHours);
 
-		mysql_query("INSERT INTO VolunteerHours 
+		mysqli_query("INSERT INTO VolunteerHours 
 		(activity, location ,volDate, numHours, memberId, projectId) VALUES ('$newActivity', '$newLocation', '$sqlDate', $newHours, $memberId, $newProject)")
-		or die(mysql_error());
+		or die(mysqli_error());
 	}
     /**
      * Write volunteer hours fields to /volunteer/util/drdanLog.txt"

@@ -12,11 +12,11 @@
 		$current_day = $today['mday'];
 		
 		//query current projects by end date		
-		$searchResult = mysql_query("SELECT projectId, projectName FROM Projects WHERE projEndDate > '$current_year-$current_month-$current_day' ORDER BY projectId");
+		$searchResult = mysqli_query("SELECT projectId, projectName FROM Projects WHERE projEndDate > '$current_year-$current_month-$current_day' ORDER BY projectId");
 		
 		//string used by HTML page for drop down menu
 		$options= "";
-		while($row = mysql_fetch_array($searchResult)){
+		while($row = mysqli_fetch_array($searchResult)){
 			$id = $row ["projectId"];
 			$project = $row["projectName"];
 			$options.="<option value=\"$id\">".$project."</option>";

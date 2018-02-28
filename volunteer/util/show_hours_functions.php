@@ -4,8 +4,8 @@
 	** @author: Greg Tran
 	**/
 	function display_user_total_vol_hours($memberId){
-		$result = mysql_query("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId") or die ("Error: ".mysql_error());
-		$column = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId") or die ("Error: ".mysqli_error());
+		$column = mysqli_fetch_array($result);
 		$totalHrs = $column['SUM(numHours)'];
 		//if no hours have been submitted, return
 		if($totalHrs == 0){
@@ -23,9 +23,9 @@
 		$today = getdate();
 		$current_year = $today['year'];
 		
-		$result = mysql_query("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId AND DATE_FORMAT(volDate, '%Y') = $current_year") or die ("Error: ".mysql_error());
+		$result = mysqli_query("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId AND DATE_FORMAT(volDate, '%Y') = $current_year") or die ("Error: ".mysqli_error());
 		
-		$column = mysql_fetch_array($result);
+		$column = mysqli_fetch_array($result);
 		$totalHrs = $column['SUM(numHours)'];
 		//if no hours have been submitted, return
 		if($totalHrs == 0){
@@ -40,12 +40,12 @@
 	** @author: Greg Tran, Benaiah Morgan
 	**/
 	function display_user_hours($memberId){	
-		$result = mysql_query("SELECT hoursId, volDate, projectName, activity, location, numHours FROM VolunteerHours, Projects WHERE Projects.projectId = VolunteerHours.projectId AND VolunteerHours.memberId = $memberId ORDER BY volDate DESC") or die ("Error: ".mysql_error());
+		$result = mysqli_query("SELECT hoursId, volDate, projectName, activity, location, numHours FROM VolunteerHours, Projects WHERE Projects.projectId = VolunteerHours.projectId AND VolunteerHours.memberId = $memberId ORDER BY volDate DESC") or die ("Error: ".mysqli_error());
 	
 		$count= 0;
 	
 		// keeps getting the next row until there are no more to get
-		while($column = mysql_fetch_array( $result )) {
+		while($column = mysqli_fetch_array( $result )) {
 			// Print the table header once but ONLY if the loop starts
 			if($count == 0) {	
 				echo "<table id = 'viewHours'>";

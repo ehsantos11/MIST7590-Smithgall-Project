@@ -10,8 +10,8 @@
 	** @return: member Id or -1 if not found
 	**/
 	function search_for_member_by_email($email){
-		$result = mysql_query("SELECT memberId FROM Member WHERE email = '$email'") or die ('Error: '.mysql_error());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Member WHERE email = '$email'") or die ('Error: '.mysqli_error());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -25,8 +25,8 @@
 	** @return: member Id or -1 if not found
 	**/
 	function search_for_member_by_email_in_security($email){
-		$result = mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysql_error());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysqli_error());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -40,8 +40,8 @@
 	** @return: member Id or -1 if not found
 	**/
 function search_for_member_by_name($firstName, $lastName, $zip){ 
-	$result = mysql_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error: '.mysql_error ());
-	$memberId = mysql_fetch_array($result);
+	$result = mysqli_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error: '.mysqli_error ());
+	$memberId = mysqli_fetch_array($result);
 	if(!$memberId){
 		return -1;
 	}else{
@@ -55,8 +55,8 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	** @return: true if found, false otherwise
 	**/
 	function search_for_password($memberId){
-		$result = mysql_query("SELECT memberId FROM Security WHERE memberId = $memberId") or die ('Error: '.mysql_error ());		
-			$result = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE memberId = $memberId") or die ('Error: '.mysqli_error ());		
+			$result = mysqli_fetch_array($result);
 			if(!$result){
 				return FALSE;
 			}
@@ -72,9 +72,9 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	** @return: # of matches based on the parameters
 	**/
 	function how_many_by_name($firstName, $lastName, $zip){
-		$result = mysql_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error: '.mysql_error ());
+		$result = mysqli_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error: '.mysqli_error ());
 		$counter = 0;
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			$counter++;
 		}
 		//returns the number of matches
@@ -85,8 +85,8 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	** @return: memberId or -1 if not found 
 	**/
 	function does_password_exist($email){
-		$result = mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysql_error ());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysqli_error ());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -98,8 +98,8 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	** @param: first name, last name, zip code, email
 	**/
 	function create_new_member($firstName, $lastName, $zip, $email){	
-		mysql_query("INSERT INTO Member 
-			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')")	or die('Error: '.mysql_error());  
+		mysqli_query("INSERT INTO Member 
+			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')")	or die('Error: '.mysqli_error());  
 		}//end function
 		
 	/**Adding member to Security table
@@ -107,21 +107,21 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	**/
 	function add_member_to_security($email, $password, $memberId) {
 		$password= sha1($password);
-		mysql_query("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error: '.mysql_error());
+		mysqli_query("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error: '.mysqli_error());
 	}
 		
 	/** Updating member information
 	** @param: member Id, first name, last name, zip code, password
 	**/
 	function update_member($memberId, $firstName, $lastName, $zip){
-		mysql_query("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId") or die('Error: '.mysql_error());
+		mysqli_query("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId") or die('Error: '.mysqli_error());
 	}
 	
 	/** Updating member information
 	** @param: member Id, email
 	**/
 	function update_member_email($memberId, $email){
-		mysql_query("UPDATE Member SET email = '$email' WHERE memberId = $memberId") or die('Error: '.mysql_error());
+		mysqli_query("UPDATE Member SET email = '$email' WHERE memberId = $memberId") or die('Error: '.mysqli_error());
 	}
 		
 	/**Logic for handling account creation
@@ -175,9 +175,9 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 	function get_member_interests(){
 		$memberId = (int) $_SESSION['memberId'];
 		
-		$result = mysql_query("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId") or die ('Error: '.mysql_error ());
+		$result = mysqli_query("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId") or die ('Error: '.mysqli_error ());
 
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			$member_interest[]=$row[interestId];
 		}
 		if($member_interest == null){
@@ -191,10 +191,10 @@ function search_for_member_by_name($firstName, $lastName, $zip){
 		$memberId = (int) $_SESSION['memberId'];
 		$member_interest = get_member_interests();
 			
-		$interest_list = mysql_query("SELECT interestName, interestId FROM Interests") or die ('ERROR: '.mysql_error());
+		$interest_list = mysqli_query("SELECT interestName, interestId FROM Interests") or die ('ERROR: '.mysqli_error());
 
 		$counter = 1;
-		while($interest_row = mysql_fetch_array($interest_list)){
+		while($interest_row = mysqli_fetch_array($interest_list)){
 			$checked ="";
 			if($member_interest != -1){
 				if(in_array($counter, $member_interest)){

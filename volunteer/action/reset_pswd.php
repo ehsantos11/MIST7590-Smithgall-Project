@@ -42,10 +42,10 @@
 					$password= new_password($email);
 					$pswd= sha1($password);
 				
-					mysql_query("UPDATE Security SET password = '$pswd' WHERE emailAddress = '$email'") or die(mysql_error());
+					mysqli_query("UPDATE Security SET password = '$pswd' WHERE emailAddress = '$email'") or die(mysqli_error());
 					// double check that it went into the table
-					$result= mysql_query("SELECT password FROM Security WHERE emailAddress = '$email'") or die(mysql_error());
-					$row = mysql_fetch_array($result);
+					$result= mysqli_query("SELECT password FROM Security WHERE emailAddress = '$email'") or die(mysqli_error());
+					$row = mysqli_fetch_array($result);
 					$dbpswd= $row[password];
 					
 					if($pswd == $dbpswd) {

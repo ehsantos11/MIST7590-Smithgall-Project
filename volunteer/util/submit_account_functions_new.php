@@ -13,8 +13,8 @@
 	** @auther: Greg Tran
 	**/
 	function search_for_member_by_email($email, $fname, $lname){
-		$result = mysql_query("SELECT memberId FROM Member WHERE email = '$email' and firstName='$fname' and lastName='$lname'") or die ('search for member by email Error: '.mysql_error());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Member WHERE email = '$email' and firstName='$fname' and lastName='$lname'") or die ('search for member by email Error: '.mysqli_error());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -29,8 +29,8 @@
 	** @author: Greg Tran
 	**/
 	function search_for_member_by_email_in_security($email){
-		$result = mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error in search for member in security: '.mysql_error());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error in search for member in security: '.mysqli_error());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -45,8 +45,8 @@
 	** @author: Greg Tran
 	**/
 	function search_for_member_by_ID_in_security($memberId){
-		$result = mysql_query("SELECT memberId FROM Security WHERE memberId = '$memberId'");
-		if($row = mysql_fetch_array($result)){
+		$result = mysqli_query("SELECT memberId FROM Security WHERE memberId = '$memberId'");
+		if($row = mysqli_fetch_array($result)){
 			return TRUE;
 		}else{
 			return FALSE;
@@ -59,8 +59,8 @@
 	** @auther: Greg Tran
 	**/
 	function search_for_member_by_name($firstName, $lastName, $zip){ 
-		$result = mysql_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error in search for member by name: '.mysql_error ());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error in search for member by name: '.mysqli_error ());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -75,8 +75,8 @@
 	** @auther: Greg Tran
 	**/
 	function search_for_password($memberId){
-		$result = mysql_query("SELECT memberId FROM Security WHERE memberId = $memberId") or die ('Error in search for password: '.mysql_error ());		
-			$result = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE memberId = $memberId") or die ('Error in search for password: '.mysqli_error ());		
+			$result = mysqli_fetch_array($result);
 			if(!$result){
 				return FALSE;
 			}
@@ -93,9 +93,9 @@
 	** @auther: Greg Tran
 	**/
 	function how_many_by_name($firstName, $lastName, $zip){
-		$result = mysql_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error in how many by namE: '.mysql_error ());
+		$result = mysqli_query("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'") or die ('Error in how many by namE: '.mysqli_error ());
 		$counter = 0;
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			$counter++;
 		}
 		//returns the number of matches
@@ -108,8 +108,8 @@
 	** @auther: Greg Tran
 	**/
 	function does_password_exist($email){
-		$result = mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysql_error ());
-		$memberId = mysql_fetch_array($result);
+		$result = mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die ('Error: '.mysqli_error ());
+		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
 			return -1;
 		}else{
@@ -124,10 +124,10 @@
         ** @author: drdan
 	**/
 	function create_new_member($firstName, $lastName, $zip, $email){	
-		mysql_query("INSERT INTO Member 
+		mysqli_query("INSERT INTO Member 
 			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')")
-  		or die('Error in create new member: '.mysql_error());  
-                return mysql_insert_id();
+  		or die('Error in create new member: '.mysqli_error());  
+                return mysqli_insert_id();
 		}//end function
 		
 	/**Add a member to Security table
@@ -136,7 +136,7 @@
 	**/
 	function add_member_to_security($email, $password, $memberId) {
 		$password= sha1($password);
-		mysql_query("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error in add member to security: '.mysql_error());
+		mysqli_query("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error in add member to security: '.mysqli_error());
 	}
 		
 	/** Update member information
@@ -144,7 +144,7 @@
 	** @auther: Greg Tran
 	**/
 	function update_member($memberId, $firstName, $lastName, $zip){
-		mysql_query("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId") or die('Error in update member: '.mysql_error());
+		mysqli_query("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId") or die('Error in update member: '.mysqli_error());
 	}
 	
 	/** Update member information
@@ -152,7 +152,7 @@
 	** @auther: Greg Tran
 	**/
 	function update_member_email($memberId, $email){
-		mysql_query("UPDATE Member SET email = '$email' WHERE memberId = $memberId") or die('Error in update member email: '.mysql_error());
+		mysqli_query("UPDATE Member SET email = '$email' WHERE memberId = $memberId") or die('Error in update member email: '.mysqli_error());
 	}
 		
 	/**Logic for handling account creation

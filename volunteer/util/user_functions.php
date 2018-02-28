@@ -6,7 +6,7 @@
 	**/
 	function add_user($email, $password) {
 		$password= sha1($password);
-		mysql_query("INSERT INTO Security (email, password) VALUES ('$email', '$password')") or die(mysql_error());
+		mysqli_query("INSERT INTO Security (email, password) VALUES ('$email', '$password')") or die(mysqli_error());
 	}
 
 	/** Check login against Security table
@@ -16,12 +16,12 @@
 	**/
 	function is_valid_login($email, $password) {
 		$password= sha1($password);
-		$result= mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email' AND password = '$password'") or die(mysql_error());
+		$result= mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email' AND password = '$password'") or die(mysqli_error());
 		
 		$counter = 0;
 		$row;
 		$memberId;
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			$counter++;
 			$memberId= $row["memberId"];
 		}
@@ -39,12 +39,12 @@
 	**/
 	function is_existing_email($email) {
 		// Get the row(s) where the given email address exists in Security
-		$result= mysql_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die(mysql_error());
+		$result= mysqli_query("SELECT memberId FROM Security WHERE emailAddress = '$email'") or die(mysqli_error());
 		
 		$counter = 0;
 		$row;
 		// while rows still exists in the query results
-		while($row = mysql_fetch_array($result)){
+		while($row = mysqli_fetch_array($result)){
 			// increase the number of rows by one
 			$counter++;
 		}

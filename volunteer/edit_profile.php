@@ -29,9 +29,9 @@
 	
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
-		$result = mysql_query("SELECT * FROM Member WHERE Member.memberId = $memberId") or die (mysql_error());
+		$result = mysqli_query("SELECT * FROM Member WHERE Member.memberId = $memberId") or die (mysqli_error());
 		
-		$profile = mysql_fetch_array( $result );
+		$profile = mysqli_fetch_array( $result );
 	?>
 		
 	<script type="text/javascript">
