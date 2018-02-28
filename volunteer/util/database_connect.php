@@ -13,8 +13,8 @@
 	/**MySQL Connection 
 	* @author: Greg Tran
 	*/
-	mysql_connect($dsn, $username, $password) or die;
-	mysql_select_db($db_name) or die;
+	mysqli_connect($dsn, $username, $password) or die;
+	mysqli_select_db($db_name) or die;
 	
 	/**
 	 * Custom error function sends an email of the error to the webmaster 
