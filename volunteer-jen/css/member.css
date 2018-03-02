@@ -1,0 +1,244 @@
+/*-----------------------------------------------------------------------*/
+/*-----------------[STYLES FOR THE MEMBERS ONLY SECTION]-----------------*/
+/*-------------------[ADD AFTER style.css TO OVERRIDE]-------------------*/
+/*---------------------------[EXISTING STYLES]---------------------------*/
+/*-----------------------------------------------------------------------*/
+
+/*Author: Mindy Wise and Benaiah Morgan*/
+
+/*------Basic Styles--------*/
+
+
+#container {
+	margin: 0 auto;
+	width: 90%;
+	padding: 0px;
+	
+}
+/*
+header {
+	padding: 5px 20px 35px;
+}
+*/
+h1 {
+	background-image: url(../images/FSGWLogo.png);
+	background-repeat: no-repeat;
+	background-position: 5px;
+	height: 100px;
+	text-indent: -2000px;
+	padding: 0px 5px 20px 35px;
+}
+
+h2 {
+	color: #544a34;
+	padding: 0px 0px 15px;
+}
+
+.center {
+	text-align: center;
+}
+
+#leftCol {
+	float: left;
+	height: 100%;
+	margin-right: 25px;
+	width: 30%;
+}
+
+#leftCol h2 {
+	text-align: center;
+}
+
+#rightCol {
+	float: left;
+	width: 65%;	
+}
+
+.message {
+	display: none;
+}
+
+/*------Dashboard--------*/
+
+#dashboard {
+	background-color: #D9CAAB;
+	border: 1px solid #544a34;
+	padding: 15px;
+}
+
+/*-----FAQ Styles---------*/
+.open {
+    display: block;
+}
+
+.closed {
+    display: none;    
+}
+
+#faqlist li {
+    list-style-type: none;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    font-size: 18px;
+}
+            
+#faqlist li img {
+    vertical-align: middle;    
+    border: 0;
+}
+
+/*------Form Styles---------*/
+
+.formTitle {
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.active {
+	text-decoration: none; 
+	color: #39620F; 
+	text-shadow: 1px 1px 1px #39620F; 
+}
+
+.formCenter {
+	margin: 0 auto;
+}
+
+form {
+	margin-top: 20px;
+	width: 490px;	
+}
+
+form ul {
+	list-style:  none;
+	margin-top: 0.3em;
+}
+
+form li {
+	margin-bottom: 0.5em;
+}
+
+
+input[type="text"], input.text, input.title, textarea, select {
+	margin: 0em;
+}
+
+/*input[type="text"], input[type="password"], input[type="date"], input[type="email"] {
+	width: 165px;
+}*/
+
+input[type="radio"] {
+	vertical-align: middle;
+}
+
+input[type="submit"] {
+	margin: auto;
+}
+
+input, select, {width: 180px;}
+
+#login input {width: 165px;}
+
+label, .formLabel {
+	display: inline-block;
+	min-width: 150px;	
+}
+
+#userEditProfile label, .formLabel {
+	width: 250px;
+}
+
+#userEditProfile .radioLabel {
+	width: 55px;
+}
+
+.radioLabel {
+	margin-right: 10px;
+	min-width: 5px;
+	width: auto;
+}
+
+fieldset {
+	margin-bottom: 1em;
+}
+
+legend {
+	border-bottom: 1px solid black;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 0.25em;
+}
+
+textarea {
+	height: 40px;
+	width: 90%;
+}
+
+.inputDesc {
+	color: #666666;
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.inputDescPadded {
+	color: #666666;
+	font-size: 0.9em;
+	font-style: italic;
+	padding-left: 1.5em;
+}
+
+.inputHint {
+	background: #60942D;
+	color: white;
+	display: none;
+	font-size: 0.8em;
+	font-weight: bold;
+	margin-left: 3px;
+	padding: 3px;
+	position: absolute;
+	width: 165px;
+}
+.required {
+	color: red
+}
+
+/*------View Hours Table--------*/
+
+#viewHours td {
+	text-align:center;
+	vertical-align:middle;
+	padding:15px;
+	border: 2px solid #756748;
+}
+
+#viewHours th {
+	font-style: bold;
+	color: #ab5f0d;
+	padding:15px;
+	border: 2px solid #756748;
+}
+
+table#viewHours {
+	border: 2px solid #756748;
+	border-collapse: collapse;
+	background-color: #EBD4AE;
+}	
+
+/*------Interest Selects--------*/
+
+#interests td {
+	text-align: left;
+	vertical-align:middle;
+	padding:15px;
+}
+
+#interests th {
+	font-style: bold;
+	color: #ab5f0d;
+	padding:15px;
+}
+
+table#interests {
+	margin: 0 auto;
+}	
+
