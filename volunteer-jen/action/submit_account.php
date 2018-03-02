@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once('../util/database_connect.php');
-	require_once('../util/secure_conn.php');
+	//require_once('../util/secure_conn.php');
 	require_once('../util/submit_account_functions.php');
 	
 	$firstName = htmlentities(substr($_POST["firstName"],0,64), ENT_QUOTES);

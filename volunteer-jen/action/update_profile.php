@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('../util/secure_conn.php');
+	//require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/valid_user.php');
 	require_once('../util/update_profile_functions.php');
