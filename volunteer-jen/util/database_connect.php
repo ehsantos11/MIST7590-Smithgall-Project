@@ -7,20 +7,20 @@
 	
 	$dsn = 'db2846.perfora.net';
 	$username = 'dbo358933030';
-	$password = '20TeamTrip10';
+	$dbpass = '20TeamTrip10';
 	$db_name = 'db358933030';
 	*/
 
 	$dsn = 'localhost';
 	$username = 'root';
-	$password = '';
+	$dbpass = '';
 	$db_name = 'db358933030'; 
 
 
 	/**MySQL Connection 
 	* @author: Greg Tran
 	*/
-	$conn = mysqli_connect($dsn, $username, $password) or die ("could not connect to mysql");
+	$conn = mysqli_connect($dsn, $username, $dbpass) or die ("could not connect to mysql");
 	mysqli_select_db($conn, $db_name) or die ("no db");
 	
 	/**

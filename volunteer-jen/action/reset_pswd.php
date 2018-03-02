@@ -1,5 +1,5 @@
 <?php
-	require_once('../util/secure_conn.php');
+	//require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/user_functions.php');
 
@@ -44,9 +44,9 @@
 					$pswd= sha1($password);
 					$dsn = 'localhost';
 					$username = 'root';
-					$password = '';
+					$dbpass = '';
 					$db_name = 'db358933030'; 
-					$conn = mysqli_connect($dsn, $username, $password, $db_name) or die ("could not connect to mysql");
+					$conn = mysqli_connect($dsn, $username, $dbpass, $db_name) or die ("could not connect to mysql");
 
 					mysqli_query($conn, "UPDATE Security SET password = '$pswd' WHERE emailAddress = '$email'") or die(mysqli_error($conn));
 					// double check that it went into the table

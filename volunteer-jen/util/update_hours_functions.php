@@ -10,9 +10,9 @@
 
                 $dsn = 'localhost';
                 $username = 'root';
-                $password = '';
+                $dbpass = '';
                 $db_name = 'db358933030'; 
-                $conn = mysqli_connect($dsn, $username, $password, $db_name) or die ("could not connect to mysql");
+                $conn = mysqli_connect($dsn, $username, $dbpass, $db_name) or die ("could not connect to mysql");
                           
 		mysqli_query($conn, "INSERT INTO VolunteerHours 
 		(activity, location ,volDate, numHours, memberId, projectId) VALUES ('$newActivity', '$newLocation', '$sqlDate', $newHours, $memberId, $newProject)")

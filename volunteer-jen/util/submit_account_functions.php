@@ -7,7 +7,7 @@
 
 	$dsn = 'localhost';
 	$username = 'root';
-	$password = '';
+	$dbpass = '';
 	$db_name = 'db358933030'; 
 	$conn = mysqli_connect($dsn, $username, $password, $db_name) or die ("could not connect to mysql");
 
@@ -40,7 +40,7 @@
 		}
 	}//end function
 	
-	/** Search for the member in the Secuirty table
+	/** Search for the member in the Security table
 	** @param: member ID
 	** @return: true if found, false otherwise
 	** @author: Greg Tran
@@ -129,8 +129,7 @@
 	**/
 	function create_new_member($firstName, $lastName, $zip, $email){	
 		global $conn;
-		mysqli_query($conn, "INSERT INTO Member 
-			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')")	or die('Error: '.mysqli_error($conn));  
+		mysqli_query($conn, "INSERT INTO Member (firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')")	or die('Error: '.mysqli_error($conn));  
 		}//end function
 		
 	/**Add a member to Security table
@@ -140,7 +139,7 @@
 	function add_member_to_security($email, $password, $memberId) {
 		global $conn;
 		$password= sha1($password);
-		mysqli_query("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error: '.mysqli_error());
+		mysqli_query($conn, "INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)") or die('Error: '.mysqli_error($conn));
 	}
 		
 	/** Update member information
