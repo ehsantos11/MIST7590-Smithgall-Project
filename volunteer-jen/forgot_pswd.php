@@ -1,5 +1,5 @@
 <?php
-	require_once('util/secure_conn.php');
+	//require_once('util/secure_conn.php');
 	require_once('util/database_connect.php');
 ?>
 <!doctype html>
