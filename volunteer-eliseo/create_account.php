@@ -76,7 +76,7 @@
 				<li>
 					<label for="zip" class="required" required="required">* Zip</label>
 					<input type="text" name="zip" id="zip" placeholder="12345" required="required" />
-					<span class="inputHint">Enter your 5 digit zip code. Example: 12345</span>
+					<span class="inputHint">Enter your 5-digit zip code. Example: 12345</span>
 				</li>
 				<li>
 					<label for="email" class="required">* Email</label>
