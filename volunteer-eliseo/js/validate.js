@@ -60,7 +60,7 @@ function setUpHints(formName) {
  *	@author: Benaiah Morgan
  */
 function startValidation() {
-	$('input[type="submit"]').attr('disabled','disabled');
+	//$('input[type="submit"]').attr('disabled','disabled');  Commented this out because it is causing a problem with submitting form after validation error.  Could be corrected with JQuery 1.6, but not worth potential problems.
 	this.valid= true;		// whether or not the form inputs are valid
 	this.errMsg= '';		// the error message that will be alerted to the end user if validation fails
 	this.focusItem= '';		// the input field that should get the focus if validation fails (the first input that's wrong)
@@ -77,7 +77,7 @@ function endValidation() {
 		
 		alert(errMsgHeading + this.errMsg);
 		if(this.focusItem != undefined) this.focusItem.focus();
-		$('input[type="submit"]').removeAttr('disabled');
+		//$('input[type="submit"]').removeAttr('disabled');    Commented this out because it is causing a problem with submitting form after validation error.  Could be corrected with JQuery 1.6, but not worth potential problems.
 	}
 	
 	return valid;
