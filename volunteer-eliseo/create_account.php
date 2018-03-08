@@ -27,7 +27,7 @@
 			startValidation();
 			validateText("firstName","You must enter your first name.");
 			validateText("lastName","You must enter your last name.");
-			validateZip("zip","You must enter your 5 digit zip code.");
+			validateZip("zip","You must enter your 5-digit zip code.");
 			validateEmail("email","You must enter a valid email address.");
 			validateConfirmText("email","confirmEmail","Please confirm your email address. This must match the Email field.");
 			validatePassword("password","Please enter a valid password: At least 6 characters, 1 letter, and 1 number");
