@@ -61,7 +61,7 @@
 					
 			validateText("firstName","You must enter your first name.");
 			validateText("lastName","You must enter your last name.");
-			validateZip("zip","You must enter your 5 digit zip code.");
+			validateZip("zip","You must enter your 5-digit zip code.");
 			
 			if($('#phone').val() != '')
 			{
@@ -202,7 +202,7 @@
 				<li>
 					<label for="zip" class="required">* Zip</label>
 					<input type="text" name="zip" id="zip" value="<?php echo $profile[zip] ?>" required="required" maxlength="45" />
-					<span class="inputHint">Enter 5 digit zip code. Example: 12345</span>
+					<span class="inputHint">Enter 5-digit zip code. Example: 12345</span>
 				</li>
 				<li>
 					<label for="country">Country</label>
