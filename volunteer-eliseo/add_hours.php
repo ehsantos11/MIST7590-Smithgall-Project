@@ -117,8 +117,9 @@
 					<span class="inputHint">Building benches</span>
 				</li>
 				<li>
-					<label for="newProject" class="required">* Project</label>
-					<select name="newProject" id="newProject">
+					<label for="newProject">* Project</label>
+					<select required name="newProject" id="newProject">
+					<option value=""></option>
 					<?=$options ?>
 					</select>
 				</li>
@@ -133,9 +134,9 @@
 					<span class="inputHint">Enter in quarter hour increments. Example: 3.25</span>
 				</li>
 				<li>
-					<label for="newSection" class="required">* Section</label>
-					<select name="newSection" id="newSection">
-						<option value="">Select Section</option>
+					<label for="newSection">* Section</label>
+					<select required name="newSection" id="newSection" >
+						<option value=""></option>
 						<option value="Smithgall Woods">Smithgall Woods</option>
 						<option value="Hardman Farm">Hardman Farm</option>
 					</select>
