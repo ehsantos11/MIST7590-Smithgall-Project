@@ -114,6 +114,7 @@
 
 		?>
 		<input type="button" value="  Edit Your Profile  " onClick="self.location= '../edit_profile.php'" />
+		<p></p>
 				</div>
 			</div>
 		</div> <!-- end of #container -->
