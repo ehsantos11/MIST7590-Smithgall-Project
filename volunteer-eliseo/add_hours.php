@@ -109,7 +109,7 @@
 				<li>
 					<label for="newDate" class="required">* Date Performed</label>
 					
-					<input type="text" name="newDate" id="newDate" required="required" placeholder="02/15/2010" maxlength="10" /><span class="inputHint">Date format: mm/dd/yyyy<br />Example: 02/15/2010<br />Do not enter future dates</span>
+					<input type="text" name="newDate" id="newDate" required="required" placeholder="02/15/2010" pattern="\d{1,2}/\d{1,2}/\d{4}" maxlength="10" /><span class="inputHint">Date format: mm/dd/yyyy<br />Example: 02/15/2010<br />Do not enter future dates</span>
 				</li>
 				<li>
 					<label for="newActivity" class="required">* Activity</label>
