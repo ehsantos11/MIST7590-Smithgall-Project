@@ -105,7 +105,12 @@
 					<span class="inputHint">Enter exactly the same password.<br />Password is case sensitive.</span>
 				</li>
 			</ul>
-			<p class="center"><input type="submit" value="  Continue  " /></p>
+			
+			<p class="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="window.location.replace('/index.php')" value="  Cancel  " />&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="  Submit  " />
+			</p>
+
 			</form>
 		</div>
 		<br style="clear: both" />
