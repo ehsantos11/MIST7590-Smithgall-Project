@@ -1,0 +1,52 @@
+/*
+* Author: Mindy Wise
+*/
+
+
+body {
+	background-color:#756748;
+	font-family: Georgia, serif;
+}
+		
+h1 {
+	visibility: hidden;
+}
+
+#errorContainer {	
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
+	height:80%;
+	padding:20px;
+	background-color: #f0ece2;
+	-moz-box-shadow: 5px 5px 5px #333;
+	-webkit-box-shadow: 5px 5px 5px #333;
+	-o-box-shadow: 5px 5px 5px #333;
+	box-shadow: 5px 5px 5px #333;
+			
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-o-border-radius: 12px;
+	border-radius: 12px;
+}
+		
+#errorImage {
+	text-align:center;
+}
+		
+#errorText {
+	float: none;
+	text-align:center;
+}
+		
+a { 
+	text-decoration: none; 
+	color: #62962E; 
+	text-shadow: 1px 1px 1px #39620F; 
+}
+		
+a:hover { 
+	text-decoration: underline; 
+	color: #39620F; 
+}
+			

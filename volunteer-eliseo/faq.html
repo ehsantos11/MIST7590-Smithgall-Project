@@ -1,0 +1,210 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+<head>
+	
+	<title>Volunteer FAQs</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Friends of Smithgall Woods Volunteer FAQs">
+	<meta name="author" content="Susan Hutto">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/member.css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+    
+    <script type="text/javascript">
+	<!-- Javascript for the Expanding Nested List -->
+	<!-----  Reads the answer as an image and displays that image on toggle --->
+	function toggle(id){
+		ul = "ul_" + id;
+		img = "img_" + id;
+		ulElement = document.getElementById(ul);
+		imgElement = document.getElementById(img);
+		if (ulElement){
+			if (ulElement.className == 'closed'){
+				ulElement.className = "open";
+				imgElement.src = "images/openarrow.png";
+				}else{
+				ulElement.className = "closed";
+				imgElement.src = "images/arrow.png";
+				}
+			}
+		}
+	</script>
+
+	<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+<body>
+  <div id="container">
+
+	<header>	
+			<h1>Friends of Smithgall Woods</h1>
+	</header>
+
+    <div id="main">
+		
+			<h2>Frequently Asked Questions</h2>
+			<p><h5>Please click the arrow to see the answer to a question.</h5></p>
+            
+            <div id="faqlist">		
+			<ul class="open">
+<!--  Question 1 -->
+			  <li id="item1"><a  onclick="toggle('item1');"><img src="images/arrow.png" alt="" id="img_item1" ></a>
+               Why should I submit my volunteer hours?
+					<ul id="ul_item1" class="closed">
+
+						<li id="item1_1">
+                        <em>Through the Volunteer Incentive Program, the Friends of Georgia State Parks & Historic Sites will contribute $2.00 per volunteer hour to the local chapter.  Volunteer hours are submitted quarterly to the State of Georgia.  Please try to have your volunteer hours submitted by the last day of each quarter; March 31st, June 30th, September 30th and December 31st.</em>
+                        </li>
+				    </ul>
+			   </li>
+ <!--  Question 1a -->
+			  <li id="item1a"><a  onclick="toggle('item1a');"><img src="images/arrow.png" alt="" id="img_item1a" ></a>
+               How long do I have to submit volunteer hours from a previous quarter or year?
+					<ul id="ul_item1a" class="closed">
+
+						<li id="item1a_1">
+                        <em>Even if a quarter's reporting date has past, you can submit volunteer hours.  For example, if it is October and you remember volunteer activity from August of the previous quarter or a previous year, you can submit the hours via the system at that time.  The hours will be submitted to the State with the current quarter's volunteer hours. </em> 
+                        </li>
+				    </ul>
+			   </li>
+
+<!--  Question 2 -->
+			  <li id="item2"><a  onclick="toggle('item2');"><img src="images/arrow.png" alt="" id="img_item2" ></a>
+              What does "Date Performed" mean?
+					<ul id="ul_item2" class="closed">             
+                    <li id="item2_1">
+
+                        <em>This is the date that you volunteered at the park. </em>
+                    </li>
+		  	  </ul>
+			  </li>
+<!--  Question 3 -->
+              <li id="item3"><a  onclick="toggle('item3');"><img src="images/arrow.png" alt="" id="img_item3" ></a>
+              What type of information is required for "Activity"?
+					<ul id="ul_item3" class="closed">             
+                    <li id="item3_1">
+                        <em>The activity describes what you did when you volunteered.  The activity could be audited by the State so it should be verifiable. 
+                         <ul>
+
+                         <li>Activity examples:</li>
+                         <li>Drove to Home Depot to pick up materials</li>
+                         <li>Gathered hay out of the barn to spread on plants</li>
+                         <li>Hiked trails to hemlock groves and measured and marked the hemlocks for chemical treatment</li>
+                         <li>Collected entrance money at the Fall Festival</li>
+                         </ul></em>
+
+			        </ul>
+                    </li>
+<!--  Question 4 -->
+              <li id="item4"><a  onclick="toggle('item4');"><img src="images/arrow.png" alt="" id="img_item4" ></a>
+              What is a "Project"?
+					<ul id="ul_item4" class="closed">             
+                    <li id="item4_1">
+                         <em>A Project is a coordinated work effort defined by the Board of the Friends of Smithgall Woods Chapter.  If you have been asked to work on an activity for a specific project, you will be told the project name.  If your volunteer activity does not fall within a project, just select the default value of "General Work".</em>       
+				    </ul>
+                    </li>
+
+ <!--  Question 5 -->
+              <li id="item5"><a  onclick="toggle('item5');"><img src="images/arrow.png" alt="" id="img_item5" ></a>
+              What do I put as "Location"? 
+					<ul id="ul_item5" class="closed">             
+                    <li id="item5_1">
+                         <em>Location is necessary to provide additional information that may be audited by the State.    If you have been asked to work on an activity for a specific project, you will be told the project name.  If your volunteer activity does not fall within a project, just select the default value of "General Work".
+                            <ul>
+                         <li>Location examples:</li>
+                         <li>Cathy Ellis Trail</li>
+
+                         <li>Education Building</li>
+                         <li>Visitor's Center</li>
+                         <li>Ash Creek Trail</li>
+                         </ul></em>
+			       </ul>
+                   </li>
+ <!--  Question 6 -->
+
+              <li id="item6"><a onclick="toggle('item6');"><img src="images/arrow.png" alt="" id="img_item6" ></a>
+              Can I submit partial hours? 
+					<ul id="ul_item6" class="closed">             
+                    <li id="item6_1">
+                         <em>Hours can be submitted in quarter hour increments.  For example, 1.0, 1.25, 1.5 or 1.75.</em>
+				    </ul>
+                    </li>
+<!--  Question 7 -->
+              <li id="item7"><a onclick="toggle('item7');"><img src="images/arrow.png" alt="" id="img_item7" ></a>
+              What is my "Profile"?  
+					<ul id="ul_item7" class="closed">             
+                    <li id="item7_1"> 
+                         <em>Your Profile information is the demographic information (address, emergency contact, etc) that the Friends' chapter maintains on all of the park's Friends and volunteers.  For example, emergency contact information is kept on file in case of an accident while you are at the park volunteering.</em>
+
+				    </ul>
+                    </li>
+<!--  Question 8 -->
+              <li id="item8"><a onclick="toggle('item8');"><img src="images/arrow.png" alt="" id="img_item8" ></a>
+              Why are my name and zip code mandatory?  
+					<ul id="ul_item8" class="closed">             
+                    <li id="item8_1"> 
+                         <em>Your name and zip code uniquely identify you to the Friend's chapter. Although an email address may seem like a better unique identifier, not all volunteers use email for communication.</em>
+				    </ul>
+                    </li> 
+
+<!--  Question 9 -->
+              <li id="item9"><a onclick="toggle('item9');"><img src="images/arrow.png" alt="" id="img_item9" ></a>
+              Why is "Do you want to volunteer?" answered No when I have never signed on the site before?  
+					<ul id="ul_item9" class="closed">                              
+                    <li id="item9_1">
+                         <em>When creating a new account and profile, the site assumes you may not want to volunteer. This way, if you accidentally skip the field, the chapter will not call asking for your assistance when you do not want to volunteer.  If you want to volunteer, and the question has defaulted to 'No", please click the "Yes" radial button. </em>
+				    </ul>
+                    </li> 
+<!--  Question 10 -->
+              <li id="item10"><a onclick="toggle('item10');"><img src="images/arrow.png" alt="" id="img_item10" ></a>
+
+              Why are "Interests" important?  
+					<ul id="ul_item10" class="closed">             
+                    <li id="item10_1"> 
+                         <em>The Friend's chapter recognizes all volunteers are not created equal and depending on their passions and abilities, have different areas of interest. By identifying what areas interest you, the chapter can contact you when those opportunities become available and your unique abilities are required.</em> 
+				    </ul>
+                    </li> 
+<!--  Question 11 -->
+              <li id="item11"><a onclick="toggle('item11');"><img src="images/arrow.png" alt="" id="img_item11" ></a>
+              Is my information secure?  
+					<ul id="ul_item11" class="closed">             
+                    <li id="item11_1"> 
+                         <em>The Volunteer Login site uses SSL or Secure Sockets Layer, authentication and encryption for security.  SSL is a protocol for transmitting private or sensitive information over the Internet. SSL works by using private `keys` to encrypt data that's transferred and another key is used to un-encrypt it at the destination so that anyone intercepting the information won`t understand it. Additionally, users of the system are authenticated when they sign on using an email address and password.  This password is stored in the database encrypted so that no one can access the site and lookup up passwords.  If you forget your password, a new password will be sent to you via email by the system. </em> 
+				    </ul>
+
+                    </li>                                                       
+<!--  Question 12 -->
+			  <li id="item12"><a  onclick="toggle('item12');"><img src="images/arrow.png" alt="" id="img_item12" ></a>
+               How do I change the email address associated with my account?
+					<ul id="ul_item12" class="closed">
+						<li id="item12_1">
+                        <em>Only the Web Master can change your email address.  Please send an email to webmaster@friendsofsmithgallwoods.org requesting the change.  Be sure to list both the old email address and the new email address in your request.  The Web Master will send a confirming email response to both of your email addresses. </em> 
+                        </li>
+				    </ul>
+			   </li>                                  
+
+<!--  Question 13 -->
+			  <li id="item13"><a  onclick="toggle('item13');"><img src="images/arrow.png" alt="" id="img_item13" ></a>
+               When I tried to create an account I received an error message.  What does this mean?
+					<ul id="ul_item13" class="closed">
+						<li id="item13_1">
+                        <em>An error message is generated when the system finds more than one record in the database for a name and zip code. The Volunteer Login site can receive account information from multiple sources (i.e Friend's registration through State website or previous volunteer activity.) If you select to send an email to the Friend's chapter Administration, they will research the accounts and determine if there is a duplicate record or a record of a volunteer with the same name. Whatever the reason for the duplication, the Admin will correct the problem and send you a confirming email response when resolved.</em> 
+                        </li>
+				    </ul>
+			   </li>
+			                                  
+                     
+<!---  When adding new questions, copy and paste the previous question block and change all occurrances of the item (5 changes) to read the next number)  --->                
+                     
+                     
+			</ul>
+
+		</div>
+
+	</div>
+  </div> <!-- end of #container -->
+</body>
+</html>
