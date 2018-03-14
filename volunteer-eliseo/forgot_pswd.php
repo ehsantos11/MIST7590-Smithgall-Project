@@ -64,7 +64,7 @@
 				<p>You have entered an incorrect email address. Please try again.</p>
 			</div>
 			
-			<form action="..action/reset_pswd.php" method="post" name="forgotpswd" id="forgotpswd" style="width: 400px" onSubmit="return validate();">
+			<form action="action/reset_pswd.php" method="post" name="forgotpswd" id="forgotpswd" style="width: 400px" onSubmit="return validate();">
 			<ul>
 				<li>
 					<label for="email">Email</label>
