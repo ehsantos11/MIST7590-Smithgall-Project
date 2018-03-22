@@ -1,6 +1,6 @@
 <?php
 	/**Volunteer Project dropdown menu, only current projects are displayed
-	** @author: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	
 	try{

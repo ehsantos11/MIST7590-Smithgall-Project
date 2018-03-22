@@ -119,7 +119,7 @@
 				<li>
 					<label for="newProject">* Project</label>
 					<select required name="newProject" id="newProject">
-					<option value=""></option>
+					<option value="" disabled selected>--Select option--</option>
 					<?=$options ?>
 					</select>
 				</li>
@@ -136,7 +136,7 @@
 				<li>
 					<label for="newSection">* Section</label>
 					<select required name="newSection" id="newSection" >
-						<option value=""></option>
+						<option value="" disabled selected>--Select option--</option>
 						<option value="Smithgall Woods">Smithgall Woods</option>
 						<option value="Hardman Farm">Hardman Farm</option>
 					</select>

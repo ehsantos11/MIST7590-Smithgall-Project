@@ -83,7 +83,7 @@ button {  width: auto; overflow: visible; }
 
 
  /* Primary Styles
-    Author: 
+    Author: Woodland Rangers
  */
 
 /*------------------------------------------------*/
@@ -91,7 +91,7 @@ button {  width: auto; overflow: visible; }
 /*------------------------------------------------*/
 
 body {
-	 background-color: #e6e6ff;
+	 background-color: #f7f7f7;
 	 color: #434343;
 	 font-family: Arial, Verdana, sans-serif;
 	 font-size: 1em;
@@ -103,7 +103,7 @@ a:hover { text-decoration: underline; color: #39620F; }
 .ui-tabs-hide { display: none; }
 br.clear { margin: 0px; padding: 0px; }
 
-h1, h2, h3, h4, h5, h6 { padding-bottom: 5px; color: #262626; letter-spacing: -1px; line-height: 1em; font-weight: normal; font-family: Georgia, serif;}
+h1, h2, h3, h4, h5, h6 { padding-bottom: 5px; color: #262626; letter-spacing: -1px; line-height: 1em; font-weight: normal; font-family: Arial, Georgia, serif;}
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #ab5f0d !important; font-weight: normal !important; }
 h1 { font-size: 36px; }
 h2 { font-size: 30px; }

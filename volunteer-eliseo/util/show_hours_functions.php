@@ -1,7 +1,7 @@
 <?php
 	/**Displays the total cumulative volunteers hours
 	** @param: member ID
-	** @author: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function display_user_total_vol_hours($memberId){
 		global $conn;
@@ -20,7 +20,7 @@
 	
 	/**Displays the total volunteer hours for the current year
 	** @param: member ID
-	** @author: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function display_user_total_yearly_hours($memberId){
 		global $conn;
@@ -42,7 +42,7 @@
 	
 	/**Displays a table of volunteer hours
 	** @param: member ID
-	** @author: Greg Tran, Benaiah Morgan
+	** @author: Woodland Rangers
 	**/
 	function display_user_hours($memberId){	
 		global $conn;

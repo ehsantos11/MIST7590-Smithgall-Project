@@ -4,7 +4,7 @@
 /*---------------------------[EXISTING STYLES]---------------------------*/
 /*-----------------------------------------------------------------------*/
 
-/*Author: Mindy Wise and Benaiah Morgan*/
+/*Author: Woodland Rangers*/
 
 /*------Basic Styles--------*/
 
@@ -24,15 +24,11 @@
 	padding: 0px;
 	
 }
-/*
-header {
-	padding: 5px 20px 35px;
-}
-*/
 
 header {
-	border-bottom: 4px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
+
 h1 {
 	background-image: url(../images/FSGWLogo.png);
 	background-repeat: no-repeat;
@@ -60,14 +56,6 @@ h2 {
 	width: 30%;
 }
 
-/*#leftCol {
-    clear: left;
-    margin: 0;
-    padding: 0;
-    border-bottom: 2px solid #ef9c00;
-    text-align: right;
-}*/
-
 #leftCol h2 {
 	text-align: center;
 }
@@ -83,23 +71,16 @@ h2 {
 
 /*------Dashboard--------*/
 
-#dashboard {
-    /*margin-bottom: .5em;
-    list-style: none;
-    padding-top: .5em;*/
-	background-color: #e6e6ff;
-	border-right: 4px solid #ccc;	
-	padding: 5px;
-}
-
-table, td, th {    
+#dashboard table td {
+	border-right: 1px solid #ccc;    
     border-bottom: 1px solid #ccc;	
     text-align: left;
+	background-color: #f1f1f1;
 }
 
 table {
     border-collapse: collapse;
-    width: 102%;
+    width: 100%;
 }
 
 th, td {
@@ -134,9 +115,8 @@ th, td {
     padding: 0 1.0em;
     border-left: 2px solid black;*/
 	font-size: 150%;
-	font-weight: bold;
-	border-bottom: 3px solid #ccc;
-	padding: 10px;
+	font-weight: bold;	
+	padding: 15px;
 }
 
 .active {
@@ -266,7 +246,7 @@ textarea {
 table#viewHours {
 	border: 2px solid #756748;
 	border-collapse: collapse;
-	background-color: #EBD4AE;
+	background-color: #f0f0f0;
 }	
 
 /*------Interest Selects--------*/
