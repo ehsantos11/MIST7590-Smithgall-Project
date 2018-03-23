@@ -1,12 +1,12 @@
 <?php
 	/**
 	** Validate email and password - Action page of login form
-	** @author: Benaiah Morgan, Mindy Wise
+	** @author: Woodland Rangers, March 2018
 	**/
 
 	// start session and include functions
 	session_start();
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/user_functions.php');
 

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/valid_user.php');
 	require_once('../util/update_hours_functions.php')
@@ -11,7 +11,7 @@
   <meta charset="utf-8">
   <title></title>
 	<meta name="description" content="">
-	<meta name="author" content="Benaiah Morgan, Greg Tran, Mindy Wise">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/member.css">
@@ -20,7 +20,7 @@
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
 		$sql = ("SELECT * FROM Member WHERE Member.memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die(mysqli_error());
+		$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 		$profile = mysqli_fetch_array( $result );
 	?>
 	

@@ -2,7 +2,7 @@
 	
 	/**Adds new volunteer hours to the VolunteerHours table
 	** @param: activity name, location, date, hours, member ID, project name
-	** @author: Greg Tran
+	** @author: Woodland Rangers, March 2018
 	**/
 	function add_member_hours($newActivity, $newLocation, $sqlDate, $newHours, $memberId, $newProject, $newSection){
         //added by drdan
@@ -11,7 +11,7 @@
 		global $conn;
 		$sql = ("INSERT INTO VolunteerHours 
 		(activity, location ,volDate, numHours, section, memberId, projectId) VALUES ('$newActivity', '$newLocation', '$sqlDate', $newHours, '$newSection', $memberId, $newProject)");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
     /**
      * Write volunteer hours fields to /volunteer/util/drdanLog.txt"

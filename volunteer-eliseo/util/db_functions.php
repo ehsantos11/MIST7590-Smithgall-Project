@@ -2,7 +2,7 @@
   /*
    * This file appears not to be used. These functions are duplicated in
    * submit_account_functions.php
-   * --drdan, June 2013
+   * --Woodland Rangers, March 2018
    */
 
 	/**search for member by email in Member table
@@ -12,7 +12,7 @@
 	function search_for_member_by_email($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE email = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -30,7 +30,7 @@
 	function search_for_member_by_email_in_security($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -48,7 +48,7 @@
 	function search_for_member_by_name($firstName, $lastName, $zip){ 
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -66,7 +66,7 @@
 	function search_for_password($memberId){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE memberId = $memberId");		
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$result = mysqli_fetch_array($result);
 			if(!$result){
@@ -86,7 +86,7 @@
 	function how_many_by_name($firstName, $lastName, $zip){
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$counter = 0;
 		while($row = mysqli_fetch_array($result)){
@@ -102,7 +102,7 @@
 	function does_password_exist($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -119,7 +119,7 @@
 		global $conn;
 		$sql = ("INSERT INTO Member 
 			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')");  
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}//end function
 		
 	/**Adding member to Security table
@@ -129,7 +129,7 @@
 		global $conn;
 		$password= sha1($password);
 		$sql = ("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 		
 	/** Updating member information
@@ -138,7 +138,7 @@
 	function update_member($memberId, $firstName, $lastName, $zip){
 		global $conn;
 		$sql = ("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 	
 	/** Updating member information
@@ -147,7 +147,7 @@
 	function update_member_email($memberId, $email){
 		global $conn;
 		$sql = ("UPDATE Member SET email = '$email' WHERE memberId = $memberId");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 		
 	/**Logic for handling account creation
@@ -202,7 +202,7 @@
 		global $conn;
 		$memberId = (int) $_SESSION['memberId'];		
 		$sql = ("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		while($row = mysqli_fetch_array($result)){
 			$member_interest[]=$row[interestId];
@@ -220,7 +220,7 @@
 		$member_interest = get_member_interests();
 			
 		$sql = ("SELECT interestName, interestId FROM Interests");
-		$interest_list = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$interest_list = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$counter = 1;
 		while($interest_row = mysqli_fetch_array($interest_list)){

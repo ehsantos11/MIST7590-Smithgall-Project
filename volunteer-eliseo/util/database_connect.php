@@ -3,7 +3,7 @@
 	set_error_handler("doerrorstuff");
 	
 	/**Login credentials
-	* @author: Woodland Rangers
+	* @author: Woodland Rangers, March 2018
 	*/
 	$dsn = 'localhost';
 	$username = 'root';
@@ -19,7 +19,7 @@
 	 * Custom error function sends an email of the error to the webmaster 
 	 * @param: errno - The number of the error
 	 * @param: errstr - The text describing the error
-	 * @author: Benaiah Morgan
+	 * @author: Woodland Rangers, March 2018
 	 */
 	function doerrorstuff($errno, $errstr, $errfile, $errline) {
 		switch ($errno) {

@@ -1,7 +1,7 @@
 <?php
 	//Start session and include functions
 	session_start();
-	//require_once('util/secure_conn.php');
+	require_once('util/secure_conn.php');
 	require_once('util/database_connect.php');
 	require_once('util/valid_user.php');
 	require_once('util/interests_functions.php');
@@ -17,7 +17,7 @@
 		<meta http-equiv="refresh" content="1; URL=error/nojs.html">
 	</noscript> 
 	<meta name="description" content="Friends of Smithgall Woods Volunteer Interests">
-	<meta name="author" content="Greg Tran">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/member.css" />
@@ -28,7 +28,7 @@
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
 		$sql = ("SELECT * FROM Member WHERE Member.memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die(mysqli_error());
+		$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 		$profile = mysqli_fetch_array( $result );
 	?>
     
@@ -42,8 +42,7 @@
 		</header>
 
 	    <div id="main">
-			<div id="leftCol">
-				<!--<h2>Volunteer Dashboard</h2>-->
+			<div id="leftCol">				
 				<div id="dashboard">
 				<table>
 					<tr><td class="formTitle">Hello <?php echo $profile[firstName] ?>!</td></tr>
@@ -65,19 +64,19 @@
 				</div>
 			</div>
 
-	<div id="rightCol">
-	<h2 class="center">Park Interests</h2>
-	<form action="action/update_interests.php" method="post" id="interests" class = "formCenter" style="width: 750px">
-		<?php
-			show_interests();
-		?>			
+			<div id="rightCol">
+				<h2 class="center">Park Interests</h2>
+				<form action="action/update_interests.php" method="post" id="interests" class = "formCenter" style="width: 750px">
+				<?php
+					show_interests();
+				?>			
 				<p class="center"><input type="submit" value="  Update Interests  " /></p>
-			</form>
-			<br/>
+				</form>
+				<br/>
+			</div>
 		</div>
-    </div>
 	  
-  </div> <!-- end of #container -->
+	  </div> <!-- end of #container -->
 
 </body>
 </html>

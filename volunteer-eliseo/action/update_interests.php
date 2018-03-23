@@ -1,7 +1,7 @@
 <?php
 	//Start session and include functions
 	session_start();
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/valid_user.php');
 	require_once('../util/update_interests_functions.php');
@@ -14,7 +14,7 @@
 	<meta charset="utf-8">
 	<title>Update Your Interests</title>
 	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="stylesheet" href="../css/member.css" />
@@ -23,7 +23,7 @@
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
 		$sql = ("SELECT * FROM Member WHERE Member.memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die(mysqli_error());
+		$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 		$profile = mysqli_fetch_array( $result );
 	?>
 </head>
@@ -36,10 +36,9 @@
 		</header>
 
 	    <div id="main">
-		    <div id="leftCol">
-			<!--<h2>Volunteer Dashboard</h2>-->
+		    <div id="leftCol">			
 				<div id="dashboard">
-				<table>
+				  <table>
 					<tr><td class="formTitle">Hello <?php echo $profile[firstName] ?>!</td></tr>
 					
 					<tr><td class="formTitle"><a href="../add_hours.php">Add New Volunteer Hours</a></td></tr>
@@ -55,16 +54,15 @@
 					<tr><td class="formTitle"><a href="../faq.html" target = "_blank">FAQs</a></td></tr>
 				
 					<tr><td class="formTitle"><a href="../logout.php">Log Out</a></td></tr>
-				</table>
+				  </table>
 				</div>
 			</div>
 
-	<div id="rightCol">
-	<h2 class="center">Park Interests</h2>
-	<form  style="width: 750px">
+			<div id="rightCol">
+			  <h2 class="center">Park Interests</h2>
+			  <form  style="width: 750px">
 
-				<?php
-				
+				<?php				
 					clean_member_has_interests($memberId);
 										
 					$counter = 1;
@@ -73,19 +71,19 @@
 							$counter++;
 						}else{							
 							$sql = ("INSERT INTO Member_has_Interests (memberId, interestId) VALUES ($memberId, $_POST[$counter])");
-							mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+							mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 							$counter++;}
 					}
 					echo "<p class=\"center\">Your interests have been updated.</p>";
 				?>
 				
 				<p class="center"><input type="button" value="  Return to Interests  " onClick="self.location= '../interests.php'"/></p>
-			</form>
-			<br/>
+			  </form>
+			  <br/>
+			</div>
 		</div>
-    </div>
 	  
-  </div> <!-- end of #container -->
+	  </div> <!-- end of #container -->
 
 </body>
 </html>

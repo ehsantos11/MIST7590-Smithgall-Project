@@ -2,7 +2,7 @@
 
 	/**Updates the member info in the Member table
 	** @param: attributes of Member table
-	** @author: Greg Tran
+	** @author: Woodland Rangers, March 2018
 	**/
 	function update_member($newFirstName, $newLastName, $newAddress, $newAddress2, $newCity, $newZip, $newState, $newCountry, $newPhone, $newCellPhone, $newVolunteerValue, $newFirstNameSP, $newLastNameSP, $newEmergencyContact, $newEmergencyPhone, $newRelationToEmerContact, $newSpecialRestrictions, $memberId){
 		global $conn;

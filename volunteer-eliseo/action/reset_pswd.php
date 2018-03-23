@@ -1,5 +1,5 @@
 <?php
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/user_functions.php');
 
@@ -17,7 +17,7 @@
 
 	<title>Reset Password</title>
 	<meta name="description" content="Friends of Smithgall Woods Password Reset">
-	<meta name="author" content="Benaiah Morgan">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/member.css">
@@ -43,11 +43,11 @@
 					$pswd= sha1($password);
 				
 					$sql = ("UPDATE Security SET password = '$pswd' WHERE emailAddress = '$email'");
-					mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+					mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 					
 					// double check that it went into the table
 					$sql = ("SELECT password FROM Security WHERE emailAddress = '$email'");
-					$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+					$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 					
 					$row = mysqli_fetch_array($result);
 					$dbpswd= $row[password];
@@ -64,14 +64,14 @@
 						$msg.= "<br /><br /><p><strong>Friends of Smithgall Wooods</strong><br /><a href='http://www.friendsofsmithgallwoods.org'>http://www.friendsofsmithgallwoods.org</a></p>";
 						mail($email, $subject, $msg, $mailheaders);
 						
-						echo "<p>Your password has been reset. An email with a temporary password has been sent to your address. We recommend changing your password after using it to log in.</p><p><a href='http://volunteer.dev/volunteer-login'>Back to Login</a>";
+						echo "<p>Your password has been reset. An email with a temporary password has been sent to your address. We recommend changing your password after using it to log in.</p><p><a href='https://www.friendsofsmithgallwoods.org/test/alpha/volunteer'>Back to Login</a>";
 					}
 					
 					else {
 						echo "<p>There was an error reseting your password. Please try again. If you continue to get this error, contact the webmaster.</p>";
 					}
 				}
-				?>
+			?>
 	</div>
   </div> <!-- end of #container -->
 </body>

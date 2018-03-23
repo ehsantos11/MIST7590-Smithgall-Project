@@ -1,25 +1,25 @@
 <?php
 	/** Add member login to Security table
 	** @param: email, password
-	** @author: Woodland Rangers
+	** @author: Woodland Rangers, March 2018
 	**/
 	function add_user($email, $password) {
 		global $conn;
 		$password= sha1($password);
 		$sql = ("INSERT INTO Security (email, password) VALUES ('$email', '$password')");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 
 	/** Check login against Security table
 	** @param: email, password
 	** @return: member Id or -1 if not valid email and password
-	** @author: Benaiah Morgan
+	** @author: Woodland Rangers
 	**/
 	function is_valid_login($email, $password) {		
 		global $conn;
 		$password= sha1($password);
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email' AND password = '$password'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$counter = 0;
 		$row;
@@ -38,13 +38,13 @@
 	/**	The purpose of this function is to return whether the given email exists in the Security table
 	** @param: $email - The email address to look for in the Security table
 	** @return: True or False if no match found
-	** @author: Benaiah Morgan
+	** @author: Woodland Rangers
 	**/
 	function is_existing_email($email) {
 		// Get the row(s) where the given email address exists in Security
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$counter = 0;
 		$row;
@@ -66,7 +66,7 @@
 	/** Reset member password to randomly generated password
 	** @param: email
 	** @return: randomly generated password
-	** @author: Benaiah Morgan
+	** @author: Woodland Rangers
 	**/
 	function new_password($email) {
 		$charArray = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','Q','X','Y','Z','!','@','#','%','^','&','*','(',')','-','_','=','+');

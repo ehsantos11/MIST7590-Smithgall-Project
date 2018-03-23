@@ -2,12 +2,12 @@
 	/**Search for member by email in Member table
 	** @param: email
 	** @return: member ID or -1 if not found
-	** @auther: Greg Tran
+	** @author: Woodland Rangers, March 2018
 	**/
 	function search_for_member_by_email($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE email = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -21,12 +21,12 @@
 	/**Search for member email in Security table
 	** @param: email
 	** @return: member ID or -1 if not found
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function search_for_member_by_email_in_security($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -37,15 +37,15 @@
 		}
 	}//end function
 	
-	/** Search for the member in the Secuirty table
+	/** Search for the member in the Security table
 	** @param: member ID
 	** @return: true if found, false otherwise
-	** @author: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function search_for_member_by_ID_in_security($memberId){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE memberId = '$memberId'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		if($row = mysqli_fetch_array($result)){
 			return TRUE;
@@ -57,12 +57,12 @@
 	/**Search for member by name in the Member table
 	** @param: first name, last name, zip code
 	** @return: member Id or -1 if not found
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function search_for_member_by_name($firstName, $lastName, $zip){ 
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -76,12 +76,12 @@
 	/**Search to see if member password exists in the Security table
 	** @param: member Id
 	** @return: true if found, false otherwise
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function search_for_password($memberId){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE memberId = $memberId");		
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());	
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));	
 			
 			$result = mysqli_fetch_array($result);
 			if(!$result){
@@ -97,12 +97,12 @@
 	/**Search to see how many matches are found in the Member table
 	** @param: first name, last name, zip code
 	** @return: # of matches based on the parameters
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function how_many_by_name($firstName, $lastName, $zip){
 		global $conn;
 		$sql = ("SELECT memberId FROM Member WHERE firstName = '$firstName' AND lastName = '$lastName' AND zip = '$zip'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$counter = 0;
 		while($row = mysqli_fetch_array($result)){
@@ -115,12 +115,12 @@
 	/**Search for password based on email in the Security table
 	** @param: email address
 	** @return: memberId or -1 if not found 
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function does_password_exist($email){
 		global $conn;
 		$sql = ("SELECT memberId FROM Security WHERE emailAddress = '$email'");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		$memberId = mysqli_fetch_array($result);
 		if(!$memberId){
@@ -132,50 +132,50 @@
 	
 	/** Insert a new member into the Member table
 	** @param: first name, last name, zip code, email
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function create_new_member($firstName, $lastName, $zip, $email){	
 		global $conn;
 		$sql = ("INSERT INTO Member 
 			(firstName, lastName, zip, email) VALUES ('$firstName', '$lastName', '$zip', '$email')");  
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}//end function
 		
 	/**Add a member to Security table
 	** @param: email address and password
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function add_member_to_security($email, $password, $memberId) {
 		global $conn;
 		$password= sha1($password);
 		$sql = ("INSERT INTO Security (emailAddress, password, memberId) VALUES ('$email', '$password', $memberId)");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 		
 	/** Update member information
 	** @param: member Id, first name, last name, zip code, password
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function update_member($memberId, $firstName, $lastName, $zip){
 		global $conn;
 		$sql = ("UPDATE Member SET firstName = '$firstName', lastName = '$lastName', zip = '$zip' WHERE memberId = $memberId");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 	
 	/** Update member information
 	** @param: member Id, email
-	** @auther: Greg Tran
+	** @author: Woodland Rangers
 	**/
 	function update_member_email($memberId, $email){
 		global $conn;
 		$sql = ("UPDATE Member SET email = '$email' WHERE memberId = $memberId");
-		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	}
 		
 	/**Logic for handling account creation
 	** @param: first, last name, email, zip code, password
 	** @return: case #
-	** @auther: Greg Tran
+	** @author: Greg Tran
 	** case 1: email exists in the Security table
 	** case 2: email exists in the Member table, not in the Security table
 	** case 3: no email match in Security or Member table, more than one match for name/zip
@@ -234,7 +234,7 @@
 	
 	/**Based upon the case scenario, the appropriate form is shown
 	** @param: case number
-	** @auther: Courtney Spak
+	** @author: Courtney Spak
 	** case 1: email exists in the Security table
 	** case 2: email exists in the Member table, not in the Security table
 	** case 3: no email match in Security or Member table, more than one match for name/zip

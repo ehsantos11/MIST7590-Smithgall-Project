@@ -10,7 +10,7 @@
 		<meta http-equiv="refresh" content="1; URL=error/nojs.html">
 	</noscript> 
 	<meta name="description" content="Friends of Smithgall Woods New Account">
-	<meta name="author" content="Benaiah Morgan">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="css/style.css?v=2">
 	<link rel="stylesheet" href="css/member.css">
@@ -107,7 +107,7 @@
 			</ul>
 			
 			<p class="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" onclick="window.location.replace('/index.php')" value="  Cancel  " />&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="window.location.replace('index.php')" value="  Cancel  " />&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="submit" value="  Submit  " />
 			</p>
 

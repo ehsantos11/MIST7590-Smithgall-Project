@@ -1,6 +1,6 @@
 <?php
 	/**Volunteer Project dropdown menu, only current projects are displayed
-	** @author: Woodland Rangers
+	** @author: Woodland Rangers, March 2018
 	**/
 	
 	try{
@@ -13,7 +13,7 @@
 		
 		//query current projects by end date		
 		$sql = ("SELECT projectId, projectName FROM Projects WHERE projEndDate > '$current_year-$current_month-$current_day' ORDER BY projectId");
-		$searchResult = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error());
+		$searchResult = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		//string used by HTML page for drop down menu
 		$options= "";

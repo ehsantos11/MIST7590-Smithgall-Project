@@ -4,20 +4,15 @@
 /*---------------------------[EXISTING STYLES]---------------------------*/
 /*-----------------------------------------------------------------------*/
 
-/*Author: Woodland Rangers*/
+/*Author: Woodland Rangers, March 2018*/
 
 /*------Basic Styles--------*/
 
 
 /*body { 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 100%;
-	margin: 0 auto;
-	width: 95%;
-	padding: 0px;
-    margin-left: 2em;
-    margin-right: 2em;
+
 }*/
+
 #container {
 	margin: 0 auto;
 	width: 90%;
@@ -111,9 +106,6 @@ th, td {
 /*------Form Styles---------*/
 
 .formTitle {
-    /*display: inline;
-    padding: 0 1.0em;
-    border-left: 2px solid black;*/
 	font-size: 150%;
 	font-weight: bold;	
 	padding: 15px;

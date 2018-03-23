@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/database_connect.php');
 	require_once('../util/valid_user.php');
 	require_once('../util/update_profile_functions.php');
@@ -14,7 +14,7 @@
 
 	<title>Volunteer Dashboard - Edit Your Profile</title>
 	<meta name="description" content="Update volunteer profile information">
-	<meta name="author" content="Greg Tran, Benaiah Morgan">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/member.css">
@@ -24,7 +24,7 @@
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
 		$sql = ("SELECT * FROM Member WHERE Member.memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die(mysqli_error());
+		$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 		$profile = mysqli_fetch_array( $result );
 	?>
 	
@@ -37,10 +37,9 @@
 	</header>
     <div id="main">
 		
-		<div id="leftCol">
-			<!--<h2>Volunteer Dashboard</h2>-->
+		<div id="leftCol">			
 			<div id="dashboard">
-			<table>
+			  <table>
 				<tr><td class="formTitle">Hello <?php echo $profile[firstName] ?>!</td></tr>
 				
 				<tr><td class="formTitle"><a href="../add_hours.php">Add New Volunteer Hours</a></td></tr>
@@ -56,7 +55,7 @@
 				<tr><td class="formTitle"><a href="../faq.html" target="_blank">FAQs</a></td></tr>
 				
 				<tr><td class="formTitle"><a href="../logout.php">Log Out</a></td></tr>
-			</table>
+			  </table>
 			</div>
 		</div>
 
@@ -66,7 +65,7 @@
 		
 			/**
 			** Get edit profile form data and add to database - action page of edit profile
-			** @author: Benaiah Morgan, Mindy Wise
+			** @author: Woodland Rangers, March 2018
 			**/
 			//get edit profile form data, escape all html, limit characters
 			$newFirstName = htmlentities(substr($_POST["firstName"],0,64), ENT_QUOTES);		
@@ -110,7 +109,7 @@
 			echo "<p>Relation: <b>$newRelationToEmerContact</b></p>";
 			echo "<p>Special Restrictions: <b>$newSpecialRestrictions</b></p>";				
 
-			echo "<p> Your profile information has been updated.</p>";
+			echo "<p> ***Your profile information has been updated!</p>";
 
 		?>
 		<input type="button" value="  Edit Your Profile  " onClick="self.location= '../edit_profile.php'" />

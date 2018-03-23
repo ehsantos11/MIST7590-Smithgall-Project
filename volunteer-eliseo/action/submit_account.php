@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once('../util/database_connect.php');
-	//require_once('../util/secure_conn.php');
+	require_once('../util/secure_conn.php');
 	require_once('../util/submit_account_functions.php');
 	
 	$firstName = htmlentities(substr($_POST["firstName"],0,64), ENT_QUOTES);
@@ -17,7 +17,7 @@
 
 	<title>Volunteer Login</title>
 	<meta name="description" content="Friends of Smithgall Woods Account Verification">
-	<meta name="author" content="Greg Tran">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/member.css">

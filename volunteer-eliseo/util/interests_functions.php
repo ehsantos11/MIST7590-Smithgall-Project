@@ -1,18 +1,13 @@
 <?php
-	//Start session and include functions
-	//session_start();
-	//require_once('util/secure_conn.php');
-	//require_once('util/database_connect.php');
-	
 	/**Displays member interests
-	** @author: Greg Tran
+	** @author: Woodland Rangers, March 2018
 	**/
 	function show_interests(){
 		global $conn;
 		$memberId = (int) $_SESSION['memberId'];
 		$member_interest = get_member_interests();
 		$sql = ("SELECT interestName, interestId FROM Interests");
-		$interest_list = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error ());
+		$interest_list = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 	
 	echo "<table id = 'interests'>";
 		$counter = 1;
@@ -38,13 +33,13 @@
 	
 	/**Retrieves the member's interest
 	** @return: an array of interestIds, -1 if no interests
-	** @author: Greg Tran
+	** @author: Woodland Rangers, March 2018
 	**/
 	function get_member_interests(){
 		global $conn;
 		$memberId = (int) $_SESSION['memberId'];		
 		$sql = ("SELECT Member_has_Interests.interestId FROM Interests, Member, Member_has_Interests WHERE Member.memberId = $memberId AND  Member_has_Interests.memberId = $memberId AND Member_has_Interests.interestId = Interests.interestId");
-		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error ());
+		$result = mysqli_query($conn, $sql) or die('ERROR: '.mysqli_error($conn));
 		
 		while($row = mysqli_fetch_array($result)){
 			$member_interest[]=$row[interestId];

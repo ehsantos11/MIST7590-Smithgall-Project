@@ -1,5 +1,5 @@
 <?php
-	//require_once('util/secure_conn.php');
+	require_once('util/secure_conn.php');
 	require_once('util/database_connect.php');
 ?>
 <!doctype html>
@@ -14,7 +14,7 @@
 		<meta http-equiv="refresh" content="1; URL=error/nojs.html">
 	</noscript> 
 	<meta name="description" content="Friends of Smithgall Woods Password Reset">
-	<meta name="author" content="Benaiah Morgan">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/member.css">
@@ -79,8 +79,8 @@
 			
 			
 			<p>Not a Friends of Smithgall Volunteer? <a href="create_account.php">Create An Account</a></p>
-			<p>Have your password? <a href="http://volunteer.dev/volunteer-login">Login</a></p>
-			<p>Back to <a href="http://volunteer.dev">Home</a></p>
+			<p>Have your password? <a href="index.php">Login</a></p>
+			<p>Back to <a href="https://www.friendsofsmithgallwoods.org/test/alpha/">Home</a></p>
 	</div>
   </div> <!-- end of #container -->
 </body>

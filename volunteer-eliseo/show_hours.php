@@ -1,7 +1,7 @@
 <?php
 	//Start session and include functions
 	session_start();
-	//require_once('util/secure_conn.php');
+	require_once('util/secure_conn.php');
 	require_once('util/database_connect.php');
 	require_once('util/valid_user.php');
 	require_once('util/show_hours_functions.php');
@@ -17,7 +17,7 @@
 		<meta http-equiv="refresh" content="1; URL=error/nojs.html">
 	</noscript> 
 	<meta name="description" content="Friends of Smithgall Woods Volunteer Hours">
-	<meta name="author" content="Benaiah Morgan">
+	<meta name="author" content="Woodland Rangers">
 
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/member.css" />
@@ -26,7 +26,7 @@
 	<?php
 		$memberId= (int) $_SESSION['memberId'];
 		$sql = ("SELECT * FROM Member WHERE Member.memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die(mysqli_error());
+		$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 		$profile = mysqli_fetch_array( $result );
 	?>
 	
@@ -40,8 +40,7 @@
 		</header>
 
 	    <div id="main">
-			<div id="leftCol">
-				<!--<h2>Volunteer Dashboard</h2>-->
+			<div id="leftCol">				
 				<div id="dashboard">
 				<table>
 					<tr><td class="formTitle">Hello <?php echo $profile[firstName] ?>!</td></tr>
@@ -63,22 +62,21 @@
 				</div>
 			</div>
 
-	<div id="rightCol">
-	<h2 class="center">View Your Hours</h2>
-	<?php
-		$memberId= (int) $_SESSION['memberId'];
-		display_user_total_vol_hours($memberId);
-		display_user_total_yearly_hours($memberId);
-		display_user_hours($memberId);
-	?>
-	
-	<br />
-	<p class="center"><input type="button" value="  Add New Hours  " onClick="self.location= 'add_hours.php'" /></p>
+			<div id="rightCol">
+				<h2 class="center">View Your Hours</h2>
+				<?php
+					$memberId= (int) $_SESSION['memberId'];
+					display_user_total_vol_hours($memberId);
+					display_user_total_yearly_hours($memberId);
+					display_user_hours($memberId);
+				?>	
+				<br />
+				<p class="center"><input type="button" value="  Add New Hours  " onClick="self.location= 'add_hours.php'" /></p>
 
+			</div>
 		</div>
-    </div>
 	  
-  </div> <!-- end of #container -->
+	  </div> <!-- end of #container -->
 
 </body>
 </html>

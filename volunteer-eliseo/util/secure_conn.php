@@ -1,6 +1,6 @@
 <?php
 	/**
-	** @author: Benaiah Morgan
+	** @author: Woodland Rangers, March 2018
 	**/
 	// make sure the page uses a secure connection
 	if (!isset($_SERVER['HTTPS'])) {

@@ -1,12 +1,12 @@
 <?php
 	/**Displays the total cumulative volunteers hours
 	** @param: member ID
-	** @author: Woodland Rangers
+	** @author: Woodland Rangers, March 2018
 	**/
 	function display_user_total_vol_hours($memberId){
 		global $conn;
 		$sql = ("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId");
-		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error());
+		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error($conn));
 		
 		$column = mysqli_fetch_array($result);
 		$totalHrs = $column['SUM(numHours)'];
@@ -28,7 +28,7 @@
 		$current_year = $today['year'];
 		
 		$sql = ("SELECT SUM(numHours) FROM VolunteerHours WHERE memberId = $memberId AND DATE_FORMAT(volDate, '%Y') = $current_year");
-		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error());
+		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error($conn));
 		
 		$column = mysqli_fetch_array($result);
 		$totalHrs = $column['SUM(numHours)'];
@@ -47,7 +47,7 @@
 	function display_user_hours($memberId){	
 		global $conn;
 		$sql = ("SELECT hoursId, volDate, projectName, activity, location, section, numHours FROM VolunteerHours, Projects WHERE Projects.projectId = VolunteerHours.projectId AND VolunteerHours.memberId = $memberId ORDER BY volDate DESC");
-		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error());	
+		$result = mysqli_query($conn, $sql) or die("ERROR: ".mysqli_error($conn));	
 		$count= 0;
 	
 		// keeps getting the next row until there are no more to get
